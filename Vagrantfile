@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
 
   
   config.vm.provision "shell", inline: <<-SHELL
-    echo /usr/bin/docker run -d --name nssigner_latest -p 53:53 cm2c/nssigner:1.0 /home/bind99/sbin/named -g -d1
+    echo /usr/bin/docker run -d --name nssigner_latest -p 53:53 -p 53:53/udp cm2c/nssigner:1.0 /opt/bbsigner/sbin/named -g -d1
   SHELL
 
 end
