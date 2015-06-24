@@ -2,3 +2,5 @@
 *.jbk
 *.jnl
 *.signed
+*.err
+*.log
