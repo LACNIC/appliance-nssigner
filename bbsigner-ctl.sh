@@ -24,6 +24,8 @@ name=`basename $0`
 pid_file="$dir/var/$name.pid"
 stdout_log="$dir/var/$name.log"
 stderr_log="$dir/var/$name.err"
+touch $stdout_log
+touch $stderr_log
 
 get_pid() {
     #cat "$pid_file"
@@ -117,8 +119,12 @@ case "$1" in
         exit 1
     fi
     ;;
+	build)
+	echo "Building docker image cm2c/nssigner:1.0"
+	cd dfiles/nssigner
+	docker build -t cm2c/nssigner:1.0 .
     *)
-    echo "Usage: $0 {start|stop|restart|status}"
+    echo "Usage: $0 {start|stop|restart|status|build}"
     exit 1
     ;;
 esac
